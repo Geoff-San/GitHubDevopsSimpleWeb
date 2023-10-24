@@ -8,11 +8,7 @@ on:
     branches:
       - main
   workflow_dispatch:
-  
-defaults:
-  run:
-    working-directory: ./SimpleWebAssemblyApp
-    
+
 jobs:
   build:
     runs-on: windows-latest
@@ -23,7 +19,7 @@ jobs:
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '7.x'
           include-prerelease: true
 
       - name: Build with dotnet
@@ -57,5 +53,5 @@ jobs:
         with:
           app-name: 'SimpleWebGitHubActions20231024gds'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F437C71DB7454631A4E11E266EB6748D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BDE0E01D8AFD4DF597B2ECC6C427F97D }}
           package: .
